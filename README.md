@@ -3,7 +3,7 @@
 📌 **SmartList** é um aplicativo para gerenciamento de listas de compras. Ele permite criar listas personalizadas, adicionar e remover itens, calcular o custo total da compra e gerenciar um orçamento disponível.  
 
 ## **🚀 Tecnologias Utilizadas**  
-- **Backend:** Spring Boot (Java)  
+- **Backend:** Spring Boot 3.4.3 (Java versão 17)  
 - **Frontend:** Angular  
 - **Banco de Dados:** MySQL  
 - **Ferramentas adicionais:** Lombok, Spring Data JPA, Hibernate  
