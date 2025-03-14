@@ -5,7 +5,7 @@
 ## **🚀 Tecnologias Utilizadas**  
 - **Backend:** Spring Boot (Java)  
 - **Frontend:** Angular  
-- **Banco de Dados:** PostgreSQL  
+- **Banco de Dados:** MySQL  
 - **Ferramentas adicionais:** Lombok, Spring Data JPA, Hibernate  
 
 ---
