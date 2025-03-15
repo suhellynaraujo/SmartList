@@ -1,13 +1,14 @@
 package br.com.smartlist.app.model;
 
-import java.util.List;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Item {
     
     private Long id;
     private String name;
     private double price;
-    private int quantity,
+    private int quantity;
 
     public Item() {
     }
