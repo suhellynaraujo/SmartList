@@ -7,18 +7,16 @@ public class Item {
     private Long id;
     private String name;
     private double price;
-    private double totalPrice;
-    private List<Item> intens;
+    private int quantity,
 
     public Item() {
     }
 
-    public Item(Long id, String name, double price, double totalPrice, List<Item> intens) {
+    public Item(Long id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.totalPrice = totalPrice;
-        this.intens = intens;
+        this.quantity = quantity;
     }
 
     public Long getId() {
@@ -45,20 +43,11 @@ public class Item {
         this.price = price;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-
-    public List<Item> getIntens() {
-        return intens;
-    }
-
-    public void setIntens(List<Item> intens) {
-        this.intens = intens;
-    }   
-
 }
