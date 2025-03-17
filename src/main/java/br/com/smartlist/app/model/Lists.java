@@ -1,18 +1,25 @@
 package br.com.smartlist.app.model;
 
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+@Entity
 public class Lists {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    
     private String name;
     private double totalPrice;
     private double totalAvailable;
+
+    @OneToMany(mappedBy = "lists", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 
     public Lists() {
