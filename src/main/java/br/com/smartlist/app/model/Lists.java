@@ -1,8 +1,8 @@
 package br.com.smartlist.app.model;
 
 import java.util.List;
-
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,9 +14,12 @@ public class Lists {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "lists_id")
     private Long id;    
     private String name;
+    @Column(name = "total_price")
     private double totalPrice;
+    @Column(name = "total_available")
     private double totalAvailable;
 
     @OneToMany(mappedBy = "lists", cascade = CascadeType.ALL, orphanRemoval = true)
