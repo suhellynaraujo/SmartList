@@ -1,10 +1,12 @@
 package br.com.smartlist.app.model;
 
-import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 
 @Entity
@@ -17,14 +19,19 @@ public class Item {
     private double price;
     private int quantity;
 
+    @ManyToOne
+    @JoinColumn(name = "lists_id")
+    private Lists lists;
+
     public Item() {
     }
 
-    public Item(Long id, String name, double price, int quantity) {
+    public Item(Long id, String name, double price, int quantity, Lists lists) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.lists = lists;
     }
 
     public Long getId() {
@@ -58,4 +65,14 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Lists getlists() {
+        return lists;
+    }
+
+    public void setlists(Lists lists) {
+        this.lists = lists;
+    }
+
+    
 }
