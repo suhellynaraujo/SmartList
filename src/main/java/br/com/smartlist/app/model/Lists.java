@@ -1,6 +1,9 @@
 package br.com.smartlist.app.model;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,6 +26,7 @@ public class Lists {
     private double totalAvailable;
 
     @OneToMany(mappedBy = "lists", cascade = CascadeType.ALL, orphanRemoval = true)
+    
     private List<Item> items;
 
     public Lists() {

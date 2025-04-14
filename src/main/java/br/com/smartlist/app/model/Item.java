@@ -1,4 +1,5 @@
 package br.com.smartlist.app.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "lists_id")
+    @JsonIgnoreProperties("items")
     private Lists lists;
 
     public Item() {
@@ -66,13 +68,14 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Lists getlists() {
+    public Lists getLists() {
         return lists;
     }
-
-    public void setlists(Lists lists) {
+    
+    public void setLists(Lists lists) {
         this.lists = lists;
     }
+    
 
     
 }

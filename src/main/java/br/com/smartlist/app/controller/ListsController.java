@@ -3,6 +3,8 @@ package br.com.smartlist.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,18 +30,22 @@ public class ListsController {
     }
     
     @PostMapping("/create_lists")
-    public Lists createLists(@RequestBody Lists lists){
-        return listsRepository.save(lists);
+    public ResponseEntity<Lists> createLists(@RequestBody Lists lists){
+        Lists savedList = listsRepository.save(lists);
+        return new ResponseEntity<>(savedList, HttpStatus.CREATED);
     }
 
-    @PutMapping("upadate_lists/{id}")
+    @PutMapping("/update_lists/{id}")
     public Lists updateLists(@PathVariable Long id, @RequestBody Lists lists){
-        Lists existengLists = listsRepository.findById(null).orElseThrow();
-        //existengLists.setName(Lists.getName());
-        return listsRepository.save(existengLists);
-    }
+    Lists existingLists = listsRepository.findById(id).orElseThrow();
+    existingLists.setName(lists.getName());
+    existingLists.setTotalPrice(lists.getTotalPrice());
+    existingLists.setTotalAvailable(lists.getTotalAvailable());
+    return listsRepository.save(existingLists);
+}
 
-    @DeleteMapping("delete_lists/{id}")
+
+    @DeleteMapping("/delete_lists/{id}")
     public void deleteShoppingList(@PathVariable Long id) {
         listsRepository.deleteById(id);
     }
