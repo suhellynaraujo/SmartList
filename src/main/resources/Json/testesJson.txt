@@ -1,0 +1,122 @@
+endpoints para testes
+
+Post
+http://localhost:8080/api/lists/create_lists
+/api/lists/create_lists
+
+{
+  "name": "Feira Semanal",
+  "totalPrice": 0.0,
+  "totalAvailable": 200.0
+}
+
+Get
+http://localhost:8080/api/lists/all_lists 
+/api/lists/all_lists
+
+não precisa passar o Json no body
+[
+  {
+    "id": 1,
+    "name": "Feira Semanal",
+    "totalPrice": 100.0,
+    "totalAvailable": 200.0
+  },
+  {
+    "id": 2,
+    "name": "Supermercado Mensal",
+    "totalPrice": 150.0,
+    "totalAvailable": 500.0
+  }
+]
+
+Put
+http://localhost:8080/api/lists/update_lists/1
+/api/lists/update_lists/{id}
+
+{
+  "name": "Supermercado",
+  "totalPrice": 250.0,
+  "totalAvailable": 300.0
+}
+
+Delete
+http://localhost:8080/api/lists/delete_lists/5
+não precisa passar o Json no body
+
+/api/lists/delete_lists/{id}
+
+{
+  "id": 1
+}
+
+Post
+localhost:8080/api/items/create_items
+/api/items/create_item
+
+{
+  "name": "Macarrão",
+  "price": 5.5,
+  "quantity": 2,
+  "lists": {
+    "id": 1
+  }
+}
+
+Get
+localhost:8080/api/items/all_items
+/api/items/all_items
+
+[
+  {
+    "id": 1,
+    "name": "Arroz",
+    "price": 5.5,
+    "quantity": 2,
+    "lists": {
+      "id": 1,
+      "name": "Feira Semanal",
+      "totalPrice": 0.0,
+      "totalAvailable": 200.0
+    }
+  },
+  {
+    "id": 2,
+    "name": "Feijão",
+    "price": 7.0,
+    "quantity": 3,
+    "lists": {
+      "id": 1,
+      "name": "Feira Semanal",
+      "totalPrice": 0.0,
+      "totalAvailable": 200.0
+    }
+  }
+]
+
+Put
+localhost:8080/api/items/update_items/4
+/api/items/update_item/{id}
+
+{
+  "name": "Arroz Integral",
+  "price": 6.0,
+  "quantity": 5,
+  "lists": {
+    "id": 1
+  }
+}
+
+Delete
+localhost:8080/api/items/delete_items/5
+/api/items/delete_item/{id}
+não passar o Json no body
+
+{
+  "id": 1
+}
+
+Get
+http://localhost:8080/api/items/item?id=1&name=arroz
+/api/items/item?id=1&name=arroz
+não precisa passar o Json no body
